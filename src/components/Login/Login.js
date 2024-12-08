@@ -7,13 +7,14 @@ import "./Login.css";
 import { useAuth } from "../context/GlobalState";
 
 const Login = () => {
-   const {user} = useAuth
+   const {user} = useAuth();
    const [email, setEmail] = useState();
    const [password, setPassword] = useState();
    const register = (e) => {
       e.preventDefault();
       createUserWithEmailAndPassword(auth, email, password);
    };
+   console.log(user);
 
    return (
       <div className="login">
