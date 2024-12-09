@@ -5,14 +5,24 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import "./Login.css";
 import { useAuth } from "../context/GlobalState";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-   const {user} = useAuth();
-   const [email, setEmail] = useState();
-   const [password, setPassword] = useState();
+   const { user } = useAuth();
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
+   const navigate = useNavigate();
    const register = (e) => {
       e.preventDefault();
-      createUserWithEmailAndPassword(auth, email, password);
+      createUserWithEmailAndPassword(auth, email, password)
+         .then((auth) => {
+            if (auth) {
+               navigate("/");
+            }
+         })
+         .catch((error) => {
+            alert(error.message);
+         });
    };
    console.log(user);
 
@@ -31,7 +41,11 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                />
                <h5>Password</h5>
-               <input type="password" value={password} onChange={(e)=> setPassword(e.target.value)}/>
+               <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+               />
                <button className="login-sigInBtn" type="submit">
                   Anmeldung
                </button>
