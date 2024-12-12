@@ -5,9 +5,13 @@ import searchIcon from "../../assets/searchIcon.svg";
 import shoppingCart from "../../assets/shopping-cart.png";
 import "./Header.css";
 import { useAuth } from "../context/GlobalState";
+import { auth } from "../../firebase";
 
 const Header = () => {
    const { user } = useAuth();
+   const handleAuthentication = () => {
+      auth.signOut();
+   };
    return (
       <div className="header">
          {/* =====logo =====*/}
@@ -26,9 +30,13 @@ const Header = () => {
 
          <div className="header-nav">
             <Link to="/login">
-               <div className="header-option">
-                  <div className="header-optionLineOne">Hallo {user ? `${user.email}` : "Gast"}</div>
-                  <div className="header-optionLineTwo">Anmelden</div>
+               <div className="header-option" onClick={handleAuthentication}>
+                  <span className="header-optionLineOne">
+                     Hallo {user ? `${user.email}` : "Gast"}
+                  </span>
+                  <span className="header-optionLineTwo">
+                     {user ? "Abmelden" : "Anmelden"}
+                  </span>
                </div>
             </Link>
 
