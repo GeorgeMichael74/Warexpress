@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header.js";
-import Login from "./components/Login/Login.js";
+import Header from "./components/header/Header.js";
+import Login from "./components/login/Login.js";
 import { auth } from "./firebase.js";
 import { useAuth } from "./components/context/GlobalState.js";
 

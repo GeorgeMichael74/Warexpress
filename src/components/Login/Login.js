@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Logo from "../../assets/logo2.png";
 import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+   createUserWithEmailAndPassword,
+   signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../../firebase";
 import "./Login.css";
 // import { useAuth } from "../context/GlobalState";
@@ -11,6 +14,14 @@ const Login = () => {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
    const navigate = useNavigate();
+   const signIn = (e) => {
+      e.preventDefault();
+      signInWithEmailAndPassword(auth, email, password).then((auth) => {
+         if (auth) {
+            navigate("/");
+         }
+      });
+   };
    const register = (e) => {
       e.preventDefault();
       createUserWithEmailAndPassword(auth, email, password)
@@ -44,7 +55,11 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                />
-               <button className="login-sigInBtn" type="submit">
+               <button
+                  className="login-sigInBtn"
+                  type="submit"
+                  onClick={signIn}
+               >
                   Anmeldung
                </button>
                <p>
