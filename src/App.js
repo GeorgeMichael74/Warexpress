@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/header/Header.js";
 import Login from "./components/login/Login.js";
 import { auth } from "./firebase.js";
 import { useAuth } from "./components/context/GlobalState.js";
+import Header from "./components/header/Header.js";
+import Home from "./components/home/Home.js";
 
 const App = () => {
    const { dispatch } = useAuth();
@@ -14,18 +15,26 @@ const App = () => {
                type: "SET_USER",
                user: authUser,
             });
-         }else {
+         } else {
             dispatch({
                type: "SET_USER",
                user: null,
-            }); 
+            });
          }
       });
-   },[]);
+   }, []);
    return (
       <div className="app">
          <Routes>
-            <Route path="/" element={<Header />} />
+            <Route
+               path="/"
+               element={
+                  <>
+                     <Header />
+                     <Home/>
+                  </>
+               }
+            />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<h1>Page Not Found</h1>} />
          </Routes>
