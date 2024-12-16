@@ -5,6 +5,8 @@ import "./Products.css"
 const Products = () => {
   return (
     <div className='product'>
+      <img src="" alt='product-img' />
+
         <div className='product-info'>
             <p>title</p>
             <p className='product-price'>
@@ -17,9 +19,8 @@ const Products = () => {
             <p><img src={starIcon} alt="star-icon"/></p>
         </div>
 
-        <img src='' alt='product-img'/>
 
-        <button></button>
+      <button>In den Warenkorb</button>
 
     </div>
   )
