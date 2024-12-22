@@ -37,7 +37,7 @@ const Home = () => {
                   image={productImg1}
                   price="159,-"
                   title="NINJA AF500EU Foodi Flex Drawer Heißluftfritteuse 2470 Watt Schwarz"
-                  rating={1} />
+                  rating={3} />
                <Products id={shortid.generate()}
                   image={productImg1}
                   price="159,-"
@@ -51,7 +51,11 @@ const Home = () => {
                   price="159,-"
                   title="NINJA AF500EU Foodi Flex Drawer Heißluftfritteuse 2470 Watt Schwarz"
                   rating={5} />
-               <Products />
+               <Products id={shortid.generate()}
+                  image={productImg1}
+                  price="159,-"
+                  title="NINJA AF500EU Foodi Flex Drawer Heißluftfritteuse 2470 Watt Schwarz"
+                  rating={5} />
             </div>
          </div>
       </div>
