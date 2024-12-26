@@ -8,7 +8,7 @@ import { useAuth } from "../context/GlobalState";
 import { auth } from "../../firebase";
 
 const Header = () => {
-   const { user } = useAuth();
+   const { user, basket } = useAuth();
    const handleAuthentication = () => {
       auth.signOut();
    };
@@ -60,7 +60,7 @@ const Header = () => {
                      alt="shoping-cart-img"
                   />
                   <span className="header-optionLinkLineTwo header-basketCount">
-                     5
+                     {basket?.length}
                   </span>
                </div>
             </Link>

@@ -5,6 +5,7 @@ import { auth } from "./firebase.js";
 import { useAuth } from "./components/context/GlobalState.js";
 import Header from "./components/header/Header.js";
 import Home from "./components/home/Home.js";
+import Checkout from "./components/checkout/Checkout.js";
 
 const App = () => {
    const { dispatch } = useAuth();
@@ -22,7 +23,7 @@ const App = () => {
             });
          }
       });
-   }, []);
+   }, [dispatch]);
    return (
       <div className="app">
          <Routes>
@@ -31,7 +32,16 @@ const App = () => {
                element={
                   <>
                      <Header />
-                     <Home/>
+                     <Home />
+                  </>
+               }
+            />
+            <Route
+               path="/checkout"
+               element={
+                  <>
+                     <Header />
+                     <Checkout/>
                   </>
                }
             />
