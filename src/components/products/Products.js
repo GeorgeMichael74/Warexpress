@@ -17,6 +17,7 @@ const Products = ({ image, title, price, rating, id }) => {
          },
       });
    };
+   console.log(basket);
    return (
       <div className="product">
          <img src={image} alt="product-img" />

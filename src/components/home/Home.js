@@ -3,7 +3,7 @@ import homeImg from "../../assets/home-img-1.jpg";
 import "./Home.css";
 import Products from "../products/Products";
 import shortid from "shortid";
-import productImg1 from "../../assets/ASSET_MMS_139539961.webp";
+import productImg1 from "../../assets/ASSET_MMS_139539961.svg";
 import productImg2 from "../../assets/ASSET_MMS_134079972.webp";
 
 const Home = () => {
