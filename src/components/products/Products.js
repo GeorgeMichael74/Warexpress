@@ -4,7 +4,7 @@ import { useAuth } from "../context/GlobalState";
 import "./Products.css";
 
 const Products = ({ image, title, price, rating, id }) => {
-   const { dispatch, basket } = useAuth();
+   const { dispatch } = useAuth();
    const addToBasket = () => {
       dispatch({
          type: "ADD_TO_BASKET",
@@ -17,10 +17,8 @@ const Products = ({ image, title, price, rating, id }) => {
          },
       });
    };
-   console.log(basket);
    return (
       <div className="product">
-         <img src={image} alt="product-img" />
 
          <div className="product-info">
             <p>{title}</p>
@@ -34,11 +32,13 @@ const Products = ({ image, title, price, rating, id }) => {
             {Array(rating)
                .fill()
                .map((_, i) => (
-                  <p>
+                  <p key={i}>
                      <img src={starIcon} alt="star-icon" />
                   </p>
                ))}
          </div>
+         
+         <img src={image} alt="product-img" />
 
          <button onClick={addToBasket}>In den Warenkorb</button>
       </div>
