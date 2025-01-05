@@ -2,6 +2,7 @@ import React from "react";
 import { useAuth } from "../context/GlobalState";
 import CheckoutProduct from "../checkoutProduct/CheckoutProduct";
 import ad from "../../assets/ad.webp";
+import Subtotal from "../subtotal/Subtotal";
 import "./Checkout.css";
 
 const Checkout = () => {
@@ -30,7 +31,7 @@ const Checkout = () => {
             </div>
          </div>
          <div className="checkout-right">
-            <h2>The subtotal will go here</h2>
+            <Subtotal />
          </div>
       </div>
    );
