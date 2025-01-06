@@ -1,20 +1,34 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../context/GlobalState";
+import { getBasketTotal } from "../context/AppReducer";
+import { useNavigate } from "react-router-dom";
 
 import "./Subtotal.css";
 
 const Subtotal = () => {
-   const { basket} = useAuth();
-   return <div className="subtotal">
-    <CurrencyFormat renderText={(value) => (
-      <>
-         <p>
-            Subtotal (0 items): <strong>0</strong>
-         </p>
-      </>
-    )} />
-   </div>;
+   const { basket } = useAuth();
+   const Navigate = useNavigate();
+
+   return (
+      <div className="subtotal">
+         <CurrencyFormat
+            renderText={(value) => (
+               <>
+                  <p>
+                     Subtotal ({basket.length} items): <strong>{value}</strong>
+                  </p>
+               </>
+            )}
+            decimalScale={2}
+            value={getBasketTotal(basket)}
+            displayType={"text"}
+            thousandSeparator={true}
+            prefix={"€"}
+         />
+         <button onClick={()=> Navigate("/payment")}>Proceed to Checkout</button>
+      </div>
+   );
 };
 
 export default Subtotal;
