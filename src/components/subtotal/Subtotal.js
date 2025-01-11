@@ -16,8 +16,12 @@ const Subtotal = () => {
             renderText={(value) => (
                <>
                   <p>
+                     <h2></h2>
                      Subtotal ({basket.length} items): <strong>{value}</strong>
                   </p>
+                  <small className="I">
+                     <input type="checkbox" /> This order contains a gift
+                  </small>
                </>
             )}
             decimalScale={2}
