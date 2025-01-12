@@ -6,28 +6,31 @@ import Subtotal from "../subtotal/Subtotal";
 import "./Checkout.css";
 
 const Checkout = () => {
-   const { User, basket } = useAuth();
+   const { user, basket } = useAuth();
    return (
       <div className="checkout">
          <div className="checkout-left">
-            <img
-               className="checkout-ad"
-               src={ad}
-               alt=""
-            />
+            <img className="checkout-ad" src={ad} alt="" />
             <div>
-               <h3>Hello, {User?.email}</h3>
+               <h3>Hello, {user?.email}</h3>
                <h2 className="checkout-title">Your Shopping Basket</h2>
-               {basket.map((item) => (
-                  <CheckoutProduct
-                     key={item.id}
-                     id={item.id}
-                     title={item.title}
-                     image={item.image}
-                     price={item.price}
-                     rating={item.rating}
-                  />
-               ))}
+               {basket.length > 0 ? (
+                  basket.map((item) => (
+                     <CheckoutProduct
+                        key={item.id}
+                        id={item.id}
+                        title={item.title}
+                        image={item.image}
+                        price={item.price}
+                        rating={item.rating}
+                     />
+                  ))
+               ) : (
+                  <p>
+                     Your Shopping Basket is empty. To buy one or more items,
+                     click "Add to basket"
+                  </p>
+               )}
             </div>
          </div>
          <div className="checkout-right">
