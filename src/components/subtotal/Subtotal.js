@@ -1,7 +1,7 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
-import { useAuth } from "../context/GlobalState";
 import { getBasketTotal } from "../context/AppReducer";
+import { useAuth } from "../context/GlobalState";
 import { useNavigate } from "react-router-dom";
 
 import "./Subtotal.css";
