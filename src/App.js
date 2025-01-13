@@ -6,6 +6,7 @@ import { useAuth } from "./components/context/GlobalState.js";
 import Header from "./components/header/Header.js";
 import Home from "./components/home/Home.js";
 import Checkout from "./components/checkout/Checkout.js";
+import Payment from "./components/payment/Payment.js";
 
 const App = () => {
    const { dispatch } = useAuth();
@@ -45,6 +46,12 @@ const App = () => {
                   </>
                }
             />
+            <Route path="/payment" element= {
+               <>
+               <Header />
+               <Payment />
+               </>
+            }/>
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<h1>Page Not Found</h1>} />
          </Routes>
