@@ -16,7 +16,7 @@ const Home = () => {
                <Products
                   id={shortid.generate()}
                   image={productImg1}
-                  price="159,-"
+                  pricerice="159,-"
                   title="NINJA AF500EU Foodi Flex Drawer Heißluftfritteuse 2470 Watt Schwarz"
                   rating={5}
                />

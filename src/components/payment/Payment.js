@@ -4,6 +4,8 @@ import "../payment/Payment.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/GlobalState";
 import CheckoutProduct from "../checkoutProduct/CheckoutProduct";
+import CurrencyFormat from "react-currency-format";
+import { getBasketTotal } from "../context/AppReducer";
 
 const Payment = () => {
    const { basket, user } = useAuth();
@@ -49,8 +51,21 @@ const Payment = () => {
             {/*===== Payment Method ====*/}
             <div className="payment-section">
                <h3>Payment Method</h3>
-               <div className="payment-priceContainer"></div>
-               <div className="payment-details">Stripe magic will go</div>
+               <div className="payment-priceContainer">
+                <CurrencyFormat 
+                renderText={(value) => (
+                  <>
+                    <h3>Order Total: {value}</h3>
+                  </>
+                )}
+                decimalScale={2}
+                value={getBasketTotal(basket)}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"€"}
+                />
+               </div>
+               {/* <div className="payment-details">Stripe magic will go</div> */}
             </div>
          </div>
       </div>
