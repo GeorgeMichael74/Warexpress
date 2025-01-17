@@ -5,7 +5,7 @@
 .payment-container > h2 {
     text-align: center;
     padding: 10px;
-    font-weight: 400;
+    font-weight: 500;
     background-color: rgb(234, 237, 237);
     border-bottom: 1pyx solid lightgray;
 }
@@ -16,4 +16,15 @@
     padding: 20px;
     margin: 20px;
     border-bottom: 1px solid lightgray;
+}
+
+.payment-title,
+.payment-section > h3 {
+    flex: 0.2;
+}
+
+.payment-address,
+.payment-items,
+.payment-details {
+    flex: 0.8;
 }
