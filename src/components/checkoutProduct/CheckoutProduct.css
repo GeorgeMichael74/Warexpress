@@ -5,9 +5,10 @@
 
 }
 .checkoutProduct-image {
-    width: 5000x;
+    width: 180px;
     height: 180px;
-    object-fit: contain;
+    border: 5px solid #f11313;
+    /* object-fit: contain; */
 }
 .checkoutProduct-info{
     padding-left: 20px;

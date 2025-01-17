@@ -53,17 +53,16 @@ const Payment = () => {
                <h3>Payment Method</h3>
                <div className="payment-priceContainer">
                 <CurrencyFormat 
-                renderText={(value) => (
-                  <>
-                    <h3>Order Total: {value}</h3>
-                  </>
-                )}
+                renderText={(value) => <h3>Order Total: {value}</h3>}
                 decimalScale={2}
                 value={getBasketTotal(basket)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"€"}
                 />
+                <botton>
+                  <span>Buy Now</span>
+                </botton>
                </div>
                {/* <div className="payment-details">Stripe magic will go</div> */}
             </div>
