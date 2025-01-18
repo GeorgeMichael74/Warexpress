@@ -51,20 +51,24 @@ const Payment = () => {
             {/*===== Payment Method ====*/}
             <div className="payment-section">
                <h3>Payment Method</h3>
-               <div className="payment-priceContainer">
-                <CurrencyFormat 
-                renderText={(value) => <h3>Order Total: {value}</h3>}
-                decimalScale={2}
-                value={getBasketTotal(basket)}
-                displayType={"text"}
-                thousandSeparator={true}
-                prefix={"€"}
-                />
-                <botton>
-                  <span>Buy Now</span>
-                </botton>
+               <div className="payment-details">
+                  <form>
+                     {/* ===== Stripe Card ====== */}
+                     <div className="payment-priceContainer">
+                        <CurrencyFormat
+                           renderText={(value) => <h3>Order Total : {value}</h3>}
+                           decimalScale={2}
+                           value={getBasketTotal(basket)}
+                           displayType={"text"}
+                           thousandSeparator={true}
+                           prefix={"€"}
+                        />
+                        <button>
+                           <span>Buy Now</span>
+                        </button>
+                     </div>
+                  </form>
                </div>
-               {/* <div className="payment-details">Stripe magic will go</div> */}
             </div>
          </div>
       </div>
